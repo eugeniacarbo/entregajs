@@ -6,13 +6,16 @@ let costoDias = parseInt(prompt("Confirmanos cuantos dias se van a quedar?"));
 
 let costoNoche = 1500;
 
-function costo(costoPersona, costoDias, costoNoche) {
+let costo = 0;
+
+function calcularCosto(costoPersona, costoDias, costoNoche) {
 
     costo = costoPersona * costoDias * costoNoche;
+    return costo;
 }
 
-costo(costoPersona, costoDias, 1500);
+calcularCosto(costoPersona, costoDias, 1500);
 
-total = costo
+let total = costo
 
 alert(`Su reserva tendrá un costo de $ ${total} `);
