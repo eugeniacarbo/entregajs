@@ -1,4 +1,4 @@
-/*alert("Calculemos cuanto sale tu estadía");
+alert("Calculemos cuanto sale tu estadía");
 
 let costoPersona = parseInt(prompt("Confirmanos cuantas personas son?"));
 
@@ -15,4 +15,4 @@ costo(costoPersona, costoDias, 1500);
 
 total = costo
 
-alert(`Su reserva tendrá un costo de $ ${total} `);*/
+alert(`Su reserva tendrá un costo de $ ${total} `);
