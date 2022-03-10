@@ -55,14 +55,40 @@ let total1 = (costo1 * cantidadPersonas * cantidadNoches);
 
 let total2 = (costo2 * cantidadPersonas * cantidadNoches);
 
-let reserva = prompt("Que cabaña te gustaria alquilar A o B"); {
+function totalEfectivo(totalParametro, descuentoParametro, impuestosParametro) {
+    let total = (totalParametro * descuentoParametro) + (totalParametro * impuestosParametro)
+    return total
+}
 
-    if (reserva == "A") {
-        alert(`La cabaña A es tuya y tendrá un costo de $ ${total1} `);
-    } else if (reserva == "B") {
-        alert(`La cabaña B es tuya y tendrá un costo de $ ${total2} `);
+function totalTarjeta(totalParametro, impuestosParametro) {
+
+    let total = totalParametro + (totalParametro * impuestosParametro)
+    return total
+}
+
+let descuento = 0.8
+
+let impuestos = 0.21
+
+function escogerMetodoDePago(totalParametro, descuentoParametro, impuestosParametro) {
+    let metodoDePago = prompt("Elige el metodo de pago \n1.Efectivo\n2.Tarjeta");
+
+    if (metodoDePago == 1) {
+        alert(`El total a pagar es $ ${totalEfectivo(totalParametro, descuentoParametro, impuestosParametro)}`);
+
     } else {
-        alert("La opcion es incorrecta")
+
+        alert(`El total a pagar es $ ${totalTarjeta(totalParametro, impuestosParametro)}`);
     }
 
+}
+
+let reserva = prompt("Que cabaña te gustaria alquilar A o B").toUpperCase();
+
+if (reserva == "A") {
+    escogerMetodoDePago(total1, descuento, impuestos)
+} else if (reserva == "B") {
+    escogerMetodoDePago(total2, impuestos, descuento)
+} else {
+    alert("La opcion es incorrecta")
 }
