@@ -40,36 +40,44 @@ while (noches >= 40) {
 
 alert(`Queda un total de ${noches} noches disponibles.`);
 
+const extras = [
+    { extras: "sombrilla", precio: 2000 },
+    { extras: "reposera", precio: 1000 },
+    { extras: "heladerita", precio: 3000 },
+];
+const carrito = [];
+
+let misExtras;
+let finalizacion;
+
+do {
+
+    misExtras = prompt("Tenemos para alquilar sombrilla, reposera y heladerita. Ingrese un pedido o ingrese finalizar pedido ");
+
+    const seleccionExtras = extras.find(extras => extras.extras === misExtras);
+
+    carrito.push(seleccionExtras);
+
+    finalizacion = prompt('1. Termina pedido \n2.Sigue haciendo pedidos')
+
+} while (finalizacion !== "1");
+
+console.log(carrito);
+
+
+const total = (array) => {
+    return array.reduce((acc, el) => acc + el.precio, 0)
+};
+
+const lista = (array) => {
+    return array.map((data) => `${data.extras} : $${data.precio}.\n`)
+
+}
+
+alert(`su cuenta es un total de $${total(carrito)} \n\n Carrito:\n\n${lista(carrito)}`);
 
 
 
 
-/*let metodoDePago = prompt("Indicá el metodo de pago: credito, debito o trasferencia");
-while (metodoDePago != "") {
-    switch (metodoDePago.toLocaleUpperCase()) {
-        case ("CREDITO"):
-            alert("Hasta 1, 3 y 6 pagos sin interés");
-            let cuotas = prompt("¿Cuantas cuotas querés?");
-            if (cuotas === "1") {
-                alert(`El valor de la cuota es $ ${costo}`);
-                break;
-            } else if (cuotas === "3") {
-                alert(`El valor de la cuota es $ ${costo / 3}`);
-                break;
-            } else if (cuotas === "6") {
-                alert(`El valor de la cuota es $ ${costo / 6}`);
-            }
 
 
-        case ("DEBITO O TRASFERENCIA"):
-            alert("Con débito tienes un 10% de descuento y con trasferencia un 20%, con que deseas abonar?");
-            let metodo = prompt("Debito o trasferencia?");
-            if (metodo === "DEBITO") {
-                alert(`El valor de la cuota es $ ${costo * 0,9}`);
-                break;
-            } else if (metodo === "TRANSFERENCIA") {
-                alert(`El valor de la cuota es $ ${costo * 0,8}`);
-            }
-
-    }
-}*/
